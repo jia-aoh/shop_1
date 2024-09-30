@@ -1,6 +1,6 @@
 [
   {
-    "img": "./a_1.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_1.jpg",
     "pid": "R001",
     "name": "Radiance Soundscape",
     "zhname": "光輝音景",
@@ -13,7 +13,7 @@
     "effect": "促進能量流動，平衡內心和諧"
   },
   {
-    "img": "./a_2.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_2.jpg",
     "pid": "R002",
     "name": "Inner Glow",
     "zhname": "靈之光暈",
@@ -26,7 +26,7 @@
     "effect": "提升自信心，增強直覺與內在智慧"
   },
   {
-    "img": "./a_3.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_3.jpg",
     "pid": "R003",
     "name": "Tranquil Essence",
     "zhname": "寧靜之本",
@@ -39,7 +39,7 @@
     "effect": "減少焦慮，促進心理健康與平和"
   },
   {
-    "img": "./a_4.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_4.jpg",
     "pid": "R004",
     "name": "Embers of Stillness",
     "zhname": "靜謐余燼",
@@ -52,7 +52,7 @@
     "effect": "增進靜思，促進內在平衡與安寧"
   },
   {
-    "img": "./a_5.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_5.jpg",
     "pid": "R005",
     "name": "Echoes of Serenity",
     "zhname": "詳恆迴響",
@@ -65,7 +65,7 @@
     "effect": "增強思考的深度，促進靈性覺醒"
   },
   {
-    "img": "./a_1.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_1.jpg",
     "pid": "R006",
     "name": "Touch of Bliss",
     "zhname": "喜悅之觸",
@@ -78,7 +78,7 @@
     "effect": "提升幸福感，增強正能量與活力"
   },
   {
-    "img": "./a_2.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_2.jpg",
     "pid": "R007",
     "name": "Tides of Reflection",
     "zhname": "思緒漣漪",
@@ -91,7 +91,7 @@
     "effect": "促進自我認知，增強內在洞察力"
   },
   {
-    "img": "./a_3.jpg",
+    "img": "https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/product_3.jpg",
     "pid": "R008",
     "name": "Lullaby of Light",
     "zhname": "光之搖籃",
