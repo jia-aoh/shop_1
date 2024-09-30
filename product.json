@@ -1,0 +1,106 @@
+[
+  {
+    "img": "./a_1.jpg",
+    "pid": "R001",
+    "name": "Radiance Soundscape",
+    "zhname": "光輝音景",
+    "size": [
+      { "capacity": "30ml", "price": 28, "discount": 23, "stock": 100 },
+      { "capacity": "70ml", "price": 50, "discount": 45, "stock": 75 },
+      { "capacity": "150ml", "price": 90, "discount": 80, "stock": 50 }
+    ],
+    "description": "宇宙的低語，透過和諧的音波交織，為您的心靈帶來平靜與喜悅。每一滴都如音符般回響，鼓勵您在繁忙的生活中找到那片刻的寧靜，重新與自我連結。",
+    "effect": "促進能量流動，平衡內心和諧"
+  },
+  {
+    "img": "./a_2.jpg",
+    "pid": "R002",
+    "name": "Inner Glow",
+    "zhname": "靈之光暈",
+    "size": [
+      { "capacity": "30ml", "price": 25, "discount": 20, "stock": 80 },
+      { "capacity": "70ml", "price": 40, "discount": 35, "stock": 60 },
+      { "capacity": "150ml", "price": 75, "discount": 65, "stock": 40 }
+    ],
+    "description": "如晨曦中的第一縷光芒，喚醒您內在的潛能。它猶如一盞明燈，指引您穿越迷霧，照亮每個追尋真理的角落，讓心靈恢復原始的光輝。",
+    "effect": "提升自信心，增強直覺與內在智慧"
+  },
+  {
+    "img": "./a_3.jpg",
+    "pid": "R003",
+    "name": "Tranquil Essence",
+    "zhname": "寧靜之本",
+    "size": [
+      { "capacity": "30ml", "price": 32, "discount": 27, "stock": 70 },
+      { "capacity": "70ml", "price": 55, "discount": 50, "stock": 50 },
+      { "capacity": "150ml", "price": 95, "discount": 85, "stock": 30 }
+    ],
+    "description": "內心和諧的源泉，幫助您在繁雜的世界中找到內在的寧靜。這款產品如同清晨的露珠，洗滌心靈的雜質，引導您回歸自我，感受生命的真正意義。",
+    "effect": "減少焦慮，促進心理健康與平和"
+  },
+  {
+    "img": "./a_4.jpg",
+    "pid": "R004",
+    "name": "Embers of Stillness",
+    "zhname": "靜謐余燼",
+    "size": [
+      { "capacity": "30ml", "price": 28, "discount": 23, "stock": 90 },
+      { "capacity": "70ml", "price": 45, "discount": 40, "stock": 70 },
+      { "capacity": "150ml", "price": 85, "discount": 75, "stock": 50 }
+    ],
+    "description": "猶如熄滅的火焰中殘存的熱量，讓您在靜止中重新發現生命的美好。它帶來的是一種深邃的安靜，鼓勵您在喧囂中尋找心靈的家園，回歸到最初的自我。",
+    "effect": "增進靜思，促進內在平衡與安寧"
+  },
+  {
+    "img": "./a_5.jpg",
+    "pid": "R005",
+    "name": "Echoes of Serenity",
+    "zhname": "詳恆迴響",
+    "size": [
+      { "capacity": "30ml", "price": 30, "discount": 25, "stock": 85 },
+      { "capacity": "70ml", "price": 52, "discount": 47, "stock": 65 },
+      { "capacity": "150ml", "price": 92, "discount": 82, "stock": 45 }
+    ],
+    "description": "如同山谷中的回聲，帶您走向靈魂深處的和諧。這款靈氣產品助您釋放繁雜的思緒，讓心靈在每一次的迴響中重拾寧靜，找到自我內在的安詳。",
+    "effect": "增強思考的深度，促進靈性覺醒"
+  },
+  {
+    "img": "./a_1.jpg",
+    "pid": "R006",
+    "name": "Touch of Bliss",
+    "zhname": "喜悅之觸",
+    "size": [
+      { "capacity": "30ml", "price": 30, "discount": 25, "stock": 80 },
+      { "capacity": "70ml", "price": 50, "discount": 45, "stock": 60 },
+      { "capacity": "150ml", "price": 90, "discount": 80, "stock": 40 }
+    ],
+    "description": "陽光灑落心田，讓每一個細胞都感受到幸福的震動。它激發內心的愉悅，讓您在生活的每一刻中都能感受到滿滿的喜悅，回歸心靈的純粹與美好。",
+    "effect": "提升幸福感，增強正能量與活力"
+  },
+  {
+    "img": "./a_2.jpg",
+    "pid": "R007",
+    "name": "Tides of Reflection",
+    "zhname": "思緒漣漪",
+    "size": [
+      { "capacity": "30ml", "price": 34, "discount": 29, "stock": 70 },
+      { "capacity": "70ml", "price": 54, "discount": 49, "stock": 50 },
+      { "capacity": "150ml", "price": 94, "discount": 84, "stock": 30 }
+    ],
+    "description": "湖面上的微風，輕輕撩動您的思考，促使您深入探索內心的奧秘。這款產品邀請您在反思中發現自我，釋放智慧的光芒，並感受到生命的無限可能。",
+    "effect": "促進自我認知，增強內在洞察力"
+  },
+  {
+    "img": "./a_3.jpg",
+    "pid": "R008",
+    "name": "Lullaby of Light",
+    "zhname": "光之搖籃",
+    "size": [
+      { "capacity": "30ml", "price": 28, "discount": 23, "stock": 90 },
+      { "capacity": "70ml", "price": 45, "discount": 40, "stock": 70 },
+      { "capacity": "150ml", "price": 85, "discount": 75, "stock": 50 }
+    ],
+    "description": "夜空中閃爍的星星，帶給您無盡的寧靜與安慰。這款產品如柔和的搖籃曲，幫助您放下日間的煩憂，讓心靈在夜晚的懷抱中得到安息，進入夢的國度。",
+    "effect": "幫助放鬆，促進深度睡眠"
+  }
+]
