@@ -148,3 +148,14 @@ cursor: pointer;
   --bs-accordion-active-bg: gainsboro;
 
 }
+/* footer */
+footer a{
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+}
+footer small{
+  padding: 0;
+  margin: 0;
+}
