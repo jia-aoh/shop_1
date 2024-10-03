@@ -551,6 +551,7 @@ const checkoutPage = () => {
             let quantity = parseInt(this.previousElementSibling.firstElementChild.innerText);
             if(quantity ==1){
               this.parentElement.parentElement.parentElement.remove()
+              pdPage(allPd)
             }else{
               this.previousElementSibling.firstElementChild.innerText = quantity - 1;
           }
