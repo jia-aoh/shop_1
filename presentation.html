@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<style>
+  /* chart.js */
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  body {
+    background-image: url('https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/bg_2.gif');
+    background-repeat: repeat;
+  }
+
+  .chartMenu {
+    width: 100%;
+    height: 3em;
+    position: fixed;
+    align-items: center;
+    background-image: url('https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/bg_2.gif');
+    background-repeat: repeat;
+    color: whitesmoke;
+    z-index: 999;
+  }
+
+  .chartMenu p {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+    padding: 0.5em;
+    z-index: 1000;
+  }
+
+  .mid {
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/bg_2.gif');
+    background-repeat: repeat;
+    position: relative;
+  }
+
+  .chartCard {
+    width: 100vw;
+
+    background-image: url('https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/bg_2.gif');
+    background-repeat: repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chartBox {
+    width: 85%;
+    padding: 30px;
+    border-radius: 20px;
+    border: solid 3px aqua;
+    background: white;
+    margin-bottom: 20px;
+  }
+
+  /* planA planB */
+  .d-n {
+    display: none;
+  }
+
+  .btnArea {
+    background-image: url('https://raw.githubusercontent.com/jia-aoh/shop_1/refs/heads/main/img/bg_2.gif');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    & .btn {
+      border: solid 3px aqua;
+      color: aqua;
+      background: #1A1A1A;
+      border-radius: 5px;
+      width: 15vw;
+      font-size: 30px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      margin-top: 10px;
+    }
+
+    & .btn:hover {
+      border: solid 3px white;
+      color: #1A1A1A;
+      background: aqua;
+      transform: scale(1.3);
+      transition: cubic-bezier(0, 1.5, 1, 1.02);
+      transition-duration: .15s;
+    }
+  }
+
+  /* tools */
+  .container {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    z-index: 1000;
+  }
+
+  .cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    animation: rotate 12s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  .face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: black;
+    border: 10px solid aqua;
+    line-height: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 150px;
+    font-weight: bold;
+    color: aqua;
+    border-radius: 20px;
+  }
+
+  .face:hover {
+    background-color: rgb(2, 2, 2);
+    width: 250px;
+    height: 250px;
+    left: -12.5px;
+    right: -12.5px;
+    line-height: 250px;
+    font-size: 200px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .front {
+    transform: translateZ(300px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(300px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(300px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(300px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(300px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(300px);
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    16.6% {
+      transform: rotateX(360deg) rotateY(90deg);
+    }
+
+    33.2% {
+      transform: rotateX(720deg) rotateY(270deg);
+    }
+
+    49.8% {
+      transform: rotateX(1080deg) rotateY(540deg);
+    }
+
+    66.4% {
+      transform: rotateX(810deg) rotateY(720deg);
+    }
+
+    82.8% {
+      transform: rotateX(630deg) rotateY(1080deg);
+    }
+
+    100% {
+      transform: rotateX(360deg) rotateY(1440deg);
+    }
+  }
+
+  .whiteboard {
+    background-image: url('./dark.gif');
+    background-repeat: repeat;
+    z-index: 1000;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+  }
+
+  /* link */
+  a {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border: solid 3px aqua;
+    color: aqua;
+    background: #1A1A1A;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+</style>
+<script>
+  //甘特圖functions
+  Chart.defaults.font.size = 18
+  //today line
+  const todayLine = {
+    id: 'todayLine',
+    afterDatasetsDraw(chart, args, pluginOptions) {
+      const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart
+      ctx.save()
+      if (x.getPixelForValue(new Date()) >= left && x.getPixelForValue(new Date()) <= right) {
+        //今天線
+        ctx.beginPath()
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'rgba(0,0,0,0.7)'
+        ctx.setLineDash([6, 1])
+        ctx.moveTo(x.getPixelForValue(new Date()), top)
+        ctx.lineTo(x.getPixelForValue(new Date()), bottom)
+        ctx.stroke()
+        ctx.restore()
+        //畫箭頭標記
+        ctx.beginPath()
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'rgba(0,0,0,0.7)'
+        ctx.fillStyle = 'rgba(0,0,0,0.7)'
+        ctx.moveTo(x.getPixelForValue(new Date()), top + 3)
+        ctx.lineTo(x.getPixelForValue(new Date()) - 6, top - 6)
+        ctx.lineTo(x.getPixelForValue(new Date()) + 6, top - 6)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.fill()
+        ctx.restore()
+        //畫今天標記
+        ctx.font = 'bold 12px sans-serif'
+        ctx.fillStyle = 'rgba(0,0,0,0.7)'
+        ctx.textAlign = 'center'
+        ctx.fillText('Today', x.getPixelForValue(new Date()) + 20, top + 15)
+
+      }
+      //讓xy軸實心
+      ctx.setLineDash([])
+    }
+  }
+  //to plan b
+  const deadLine = {
+    id: 'deadLine',
+    afterDatasetsDraw(chart, args, pluginOptions) {
+      const { ctx, data, chartArea: { top, bottom, left, right }, scales: { x, y } } = chart
+      ctx.save()
+      if (x.getPixelForValue(new Date()) >= left && x.getPixelForValue(new Date()) <= right) {
+        //死線
+        ctx.beginPath()
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'red'
+        ctx.setLineDash([6, 1])
+        ctx.moveTo(x.getPixelForValue(new Date('2024-09-26')), top)
+        ctx.lineTo(x.getPixelForValue(new Date('2024-09-26')), bottom)
+        ctx.stroke()
+        ctx.restore()
+        //箭頭標記
+        ctx.beginPath()
+        ctx.lineWidth = 1
+        ctx.strokeStyle = 'red'
+        ctx.fillStyle = 'red'
+        ctx.moveTo(x.getPixelForValue(new Date('2024-09-26')), top + 3)
+        ctx.lineTo(x.getPixelForValue(new Date('2024-09-26')) - 6, top - 6)
+        ctx.lineTo(x.getPixelForValue(new Date('2024-09-26')) + 6, top - 6)
+        ctx.closePath()
+        ctx.stroke()
+        ctx.fill()
+        ctx.restore()
+        //切換計畫標記
+        ctx.font = 'bold 12px sans-serif'
+        ctx.fillStyle = 'red'
+        ctx.textAlign = 'center'
+        ctx.fillText('To Plan B', x.getPixelForValue(new Date('2024-09-26')) + 35, top + 10)
+
+      }
+      //讓xy軸實心
+      ctx.setLineDash([])
+    }
+  }
+  //data plan a
+  const data1 = {
+    datasets: [
+      {
+        label: '計畫',
+        data: [
+          { x: ['2024-09-11', '2024-09-12'], y: '發想', task: 'Task 1' },
+          { x: ['2024-09-12', '2024-09-16'], y: '界定範圍', task: 'Task 1' },
+          { x: ['2024-09-16', '2024-09-18'], y: '規劃功能', task: 'Task 2' },
+          { x: ['2024-09-18', '2024-09-20'], y: '規劃排版', task: 'Task 2' },
+          { x: ['2024-09-20', '2024-09-23'], y: '圖文素材', task: 'Task 3' },
+          { x: ['2024-09-23', '2024-09-26'], y: '寫功能', task: 'Task 4' },
+          { x: ['2024-09-26', '2024-09-28'], y: '排版', task: 'Task 4' },
+          { x: ['2024-09-28', '2024-09-30'], y: '串接', task: 'Task 4' },
+          { x: ['2024-09-30', '2024-10-02'], y: '重構', task: 'Task 5' },
+          { x: ['2024-10-02', '2024-10-04'], y: '簡報', task: 'Task 6' },
+          { x: ['2024-10-04', '2024-10-05'], y: '發表', task: 'Task 6' }
+        ],
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+        borderSkipped: false,
+        borderRadius: 2,
+        barPercentage: 0.9,
+      },
+      {
+        label: '實際',
+        data: [
+          { x: ['2024-09-11', '2024-09-12'], y: '發想', task: 'Task 1' },
+          { x: ['2024-09-12', '2024-10-05'], y: '界定範圍', task: 'Task 1' },
+          { x: ['2024-09-14', '2024-10-05'], y: '規劃功能', task: 'Task 2' },
+        ],
+        backgroundColor: 'rgba(0,255,255, 0.2)',
+        borderColor: 'aqua',
+        borderWidth: 1,
+        borderSkipped: false,
+        borderRadius: 2,
+        barPercentage: 0.9,
+      }
+    ]
+  }
+
+  const config1 = {
+    type: 'bar',
+    data: data1,
+    options: {
+      layout: {
+        padding: {
+          left: 0
+        }
+      },
+      indexAxis: 'y',
+      scales: {
+        x: {
+          position: 'top',
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'MM/dd'
+            }
+          },
+          min: '2024-09-11',
+          max: '2024-10-05'
+        },
+        y: {
+          textAlign: 'center'
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 25
+            }
+          }
+        },
+        tooltip: {
+          displayColors: false,
+          callbacks: {
+            label: (ctx) => '',
+            title: (ctx) => {
+              // console.log(ctx[0])
+              const startDate = new Date(ctx[0].raw.x[0])
+              const endDate = new Date(ctx[0].raw.x[1])
+              const formattedStartDate = startDate.toLocaleString([], {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })
+              const formattedEndDate = endDate.toLocaleString([], {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })
+              return [`${ctx[0].raw.task} - ${ctx[0].label}`, `Deadline: ${formattedStartDate} ~ ${formattedEndDate}`]
+            }
+          }
+        }
+      }
+    },
+    plugins: [
+      deadLine,
+      todayLine
+    ]
+  }
+  //----------------------------------
+  //data plan b
+  const data2 = {
+    datasets: [
+      {
+        label: '計畫',
+        data: [
+          { x: ['2024-09-27', '2024-09-28'], y: '需求圖文', task: 'Task 1' },
+          { x: ['2024-09-28', '2024-09-29'], y: '*整理套件', task: 'Task 0' },
+          { x: ['2024-09-29', '2024-10-01'], y: '排版運算', task: 'Task 2' },
+          { x: ['2024-10-01', '2024-10-02'], y: '串接', task: 'Task 3' },
+          { x: ['2024-10-02', '2024-10-03'], y: '重構', task: 'Task 4' },
+          { x: ['2024-10-03', '2024-10-04'], y: '簡報', task: 'Task 5' },
+          { x: ['2024-10-04', '2024-10-04'], y: '*技彩', task: 'Task 6' },
+          { x: ['2024-10-04', '2024-10-05'], y: '發表', task: 'Task 7' }
+        ],
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+        borderSkipped: false,
+        borderRadius: 2,
+        barPercentage: 0.9,
+      },
+      {
+        label: '實際',
+        data: [
+          { x: ['2024-09-27', '2024-09-28'], y: '需求圖文', task: 'Task 1' },
+          { x: ['2024-09-28', '2024-09-29'], y: '*整理套件', task: 'Task 0' },
+          { x: ['2024-09-29', '2024-09-30'], y: '排版運算', task: 'Task 2' },
+          { x: ['2024-09-30', '2024-10-01'], y: '串接', task: 'Task 3' },
+          { x: ['2024-10-01', '2024-10-02'], y: '重構', task: 'Task 4' },
+          { x: ['2024-10-02', '2024-10-03'], y: '簡報', task: 'Task 5' },
+          { x: ['2024-10-03', '2024-10-04'], y: '*技彩', task: 'Task 6' },
+          { x: ['2024-10-04', '2024-10-05'], y: '發表', task: 'Task 7' }
+        ],
+        backgroundColor: 'rgba(0, 255, 255, 0.2)',
+        borderColor: 'aqua',
+        borderWidth: 1,
+        borderSkipped: false,
+        borderRadius: 2,
+        barPercentage: 0.9,
+      }
+    ]
+  }
+
+  const config2 = {
+    type: 'bar',
+    data: data2,
+    options: {
+      layout: {
+        padding: {
+          left: 0
+        }
+      },
+      indexAxis: 'y',
+      scales: {
+        x: {
+          position: 'top',
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'MM/dd'
+            }
+          },
+          min: '2024-09-27',
+          max: '2024-10-05'
+        },
+        y: {
+          textAlign: 'center'
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            font: {
+              size: 25
+            }
+          }
+        },
+        tooltip: {
+          displayColors: false,
+          callbacks: {
+            label: (ctx) => '',
+            title: (ctx) => {
+              // console.log(ctx[0])
+              const startDate = new Date(ctx[0].raw.x[0])
+              const endDate = new Date(ctx[0].raw.x[1])
+              const formattedStartDate = startDate.toLocaleString([], {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })
+              const formattedEndDate = endDate.toLocaleString([], {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+              })
+              return [`${ctx[0].raw.task} - ${ctx[0].label}`, `Deadline: ${formattedStartDate} ~ ${formattedEndDate}`]
+            }
+          }
+        }
+      }
+    },
+    plugins: [
+      todayLine,
+    ]
+  }
+  //----------------------------------
+
+  window.onload = () => {
+    new Chart(document.getElementById('myChart1'), config1)
+    new Chart(document.getElementById('myChart2'), config2)
+
+    ScrollTrigger.create({
+      animation: gsap.from('.chartMenu p', {
+        y: '45vh',
+        scale: 5,
+        yPercent: 0,
+      }),
+      scrub: true,
+      trigger: '.btn',
+      start: 'top bottom',
+      endTrigger: '.btn',
+      end: 'top center',
+    })
+    changePlan()
+  }
+  window.addEventListener('resize', () => {
+    location.reload()
+  })
+  let counter = -1
+  const changePlan = () => {
+    counter += 1
+    if (counter % 2) {
+      planA.classList.add('d-n')
+      planB.classList.remove('d-n')
+      bn.innerText = 'Plan B'
+    } else {
+      planA.classList.remove('d-n')
+      planB.classList.add('d-n')
+      bn.innerText = 'Plan A'
+    }
+  }
+
+
+</script>
+
+<body>
+  <div class="chartMenu">
+    <p>Mid-Presentation</p>
+  </div>
+  <div class="whiteboard">
+    <div class="container">
+      <div class="cube">
+        <i class="face front fa-brands fa-html5"></i>
+        <i class="face back fa-brands fa-css3-alt"></i>
+        <i class="face bottom fa-brands fa-git-alt"></i>
+        <i class="face left fa-brands fa-js"></i>
+        <i class="face right fa-brands fa-bootstrap"></i>
+        <i class="face top fa-brands fa-git-alt"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="mid"></div>
+  <div class="btnArea" data-aos="fade-up" data-aos-offset="200">
+    <button class="btn" id="bn" onclick="changePlan()">Plan A</button>
+  </div>
+  <div id="planA" class="chartCard d-n" data-aos="fade-up" data-aos-offset="350">
+    <div class="chartBox">
+      <canvas id="myChart1"></canvas>
+    </div>
+  </div>
+  <div id="planB" class="chartCard" data-aos="fade-up" data-aos-offset="350">
+    <div class="chartBox">
+      <canvas id="myChart2"></canvas>
+    </div>
+  </div>
+  <div>
+    <a href="./main.html">Link</a>
+  </div>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+
+</html>
